@@ -1,0 +1,144 @@
+Project Title: Misunderstanding 
+Link
+•	GitHub ：New File at 
+•	（GitHub Pages）：
+
+Project Overview 
+
+This project is an interactive experience based on p5.js, centered around a mysterious theme. Players engage in interactions and gradually uncover the protagonist's inner thoughts. The overall design focuses on art and interaction, aiming to create diverse psychological experiences. 
+
+Themes and Concepts
+
+Emotional/psychological themes: Loneliness, memory, fear, etc. 
+
+Story background:
+1. A puzzle game
+2. The protagonist is named Insees (male)
+3. He has been imprisoned by a monster. The monster has the same voice as the protagonist. The protagonist needs to find clues in the space to rescue himself and return to the past to rescue the monster. The monster was originally a part of the protagonist, but due to the protagonist being constantly bullied by others for a long time, it mutated one night and separated from the protagonist's soul. However, the protagonist only rescued one of his own selves. Many other selves were imprisoned in different time periods, but all faced the same scenario. 
+
+Art style: Dream-like style, etc. 
+
+Technical methods
+Used p5.js technology
+
+This project utilizes multiple core and advanced functions of p5.js, including:
+•	Building the main loop structure through the setup() and draw() functions
+•	Using state machine to control different game stages (menu / play / level / win / lose, etc.)
+•	Preloading all image and audio resources using preload()
+•	Managing multiple images and sound effects (images, sounds, subScenes, etc.) using arrays
+•	Managing game entities such as players, enemies, and food using class-like object structures
+•	Implementing collision detection using dist()
+•	Generating objects randomly using random()
+•	Implementing keyboard movement control using keyIsDown() 
+
+Interaction methods
+Mouse click:
+Control the start button of the menu
+Control the page turning of the plot
+Select the sub-scene area
+Trigger the switch of levels 
+
+Keyboard control:
+WASD / Arrow keys control character movement (player movement system) 
+
+Audio Trigger Interaction:
+Click to trigger the playback of voice/audio effects
+The next operation can only be performed after the audio playback is completed (controlled by onended() function) 
+Scene switching logic
+
+This project employs a state machine structure (scene switching system): scene = "menu"
+scene = "play"
+scene = "subScene"
+scene = "level1"
+scene = "transition"
+scene = "level2"
+scene = "win"
+scene = "lose"
+scene = "ending"
+
+Switching method:
+• Mouse click triggers the change of the scene variable
+• Conditional judgment controls the progress of the level:
+o Score meets the standard → Proceed to the next level
+o TimeLeft = 0 → Fail
+o Lives = 0 → Fail
+• Sub-plot completion automatically unlocks the main level 
+Audio / Image / Animation Processing Methods
+
+Image System
+• All images are uniformly loaded in the preload() function
+• Use an array to manage multiple story images:
+o images[]: Main story images
+o subScenes[][]: Sub-story group images
+• Render using image()
+• Use a fixed resolution system (BASE_W / BASE_H) to ensure consistent aspect ratio of the screen 
+
+Audio System
+•	Preload all audio using loadSound()
+•	Main story audio: sounds[]
+•	Sub-plot audio: subSounds[]
+•	Background music: bgm
+•	Key mechanisms: o	play()
+o	setLoop(true)
+o	onended() controls the click rhythm
+o	userStartAudio() resolves the issue of browser autoplay restrictions 
+
+Animation/Game Dynamics
+•	Real-time update of the screen using draw()
+•	Player movement is achieved through coordinate updates
+•	Enemies move automatically using speed
+•	Food randomly reappears to form a dynamic cycle
+•	Interaction feedback is controlled using collision distance 
+
+Whether to use JSON / external data
+
+This project does not use JSON external data files.
+All resources (images, audio, level data) are:
+• Directly defined in JavaScript
+• Manually managed using arrays
+• Loaded one by one in the preload() function 
+
+Custom functions and advanced structures
+
+This project includes several custom functions and modular structures:
+Core custom functions
+• drawMenu() → Main menu
+• drawStory() → Main story system
+• drawSub() → Sub-story system
+• drawLevel1() → Logic for the first level
+• drawLevel2() → Logic for the second level
+• initLevel1() / initLevel2() → Level initialization
+• movePlayer() → Player movement system
+• timer() → Time system
+• playSound() → Audio control system
+• getZones() → Generation of interaction areas
+• inRect() → Collision detection utility function
+• startBGM() → Background music control 
+
+Advanced structural features
+• State machine architecture (Scene-based architecture)
+• Modular function splitting (clear separation of UI / logic / gameplay)
+• Audio playback control lock (prevents repeated clicks)
+• Fixed resolution scaling system (responsive scaling)
+• Multi-layer story structure (main story + sub scenes + levels) 
+
+Source of inspiration
+•	Rusty Lake series: https://www.rustylake.com
+→ This series has influenced the puzzle structure and atmosphere design of this project. •	The Freak Circus:https:/thefreakcircus.com
+It has affected the overall color style and UI design. 
+
+Group Members and Responsibilities
+
+Member Name: YUNJIA WU 
+p5.js logic and interaction system Programming
+Art design
+Research/Planning
+UI design, scene drawing
+Storytelling, inspiration gathering
+Bug testing, optimizing experience 
+
+Other Notes
+• All codes are hosted on GitHub
+• The project is deployed via GitHub Pages
+• The used materials (images/audio) are all original or have been properly attributed
+• The README file has detailed the development process
